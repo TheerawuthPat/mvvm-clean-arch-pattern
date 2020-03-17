@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:bind="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<variable
+			name="data"
+			type="com.example.android_theerawuth_assignment.feature.main.domain.ProfileDataModel" />
+	</data>
+
+	<FrameLayout
+		android:background="@drawable/background_shadow"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/white"
+			android:padding="16dp">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/profileImageLayout"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:layout_constraintEnd_toStartOf="@+id/likeLayout"
+				app:layout_constraintHorizontal_bias="0.5"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/profileImage"
+					android:layout_width="@dimen/profile_image_size"
+					android:layout_height="@dimen/profile_image_size"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					bind:imageUrl="@{data.avatar}"
+					tools:src="@drawable/ic_place_holder_profile" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/nameTextView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:text="@{data.fullName}"
+					android:textColor="@android:color/black"
+					android:textSize="@dimen/name_text_size"
+					android:layout_marginTop="4dp"
+					app:autoSizeTextType="uniform"
+					app:autoSizeMaxTextSize="@dimen/name_text_size"
+					app:autoSizeMinTextSize="@dimen/min_name_text_size"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/profileImage"
+					tools:text="Theerawuth P" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/likeLayout"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:layout_constraintEnd_toStartOf="@+id/followerLayout"
+				app:layout_constraintHorizontal_bias="0.5"
+				app:layout_constraintStart_toEndOf="@+id/profileImageLayout"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/likeNumberTextView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:textAlignment="center"
+					android:textStyle="bold"
+					android:textColor="@android:color/black"
+					android:textSize="@dimen/number_text_size"
+					android:text="@{data.likeToDisplay}"
+					app:autoSizeMaxTextSize="@dimen/number_text_size"
+					app:autoSizeMinTextSize="@dimen/min_number_text_size"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="324" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/likeTextView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:text="@string/likes_title"
+					android:textAlignment="center"
+					android:textColor="@android:color/darker_gray"
+					android:textSize="@dimen/status_text_size"
+					app:layout_constraintEnd_toEndOf="@+id/likeNumberTextView"
+					app:layout_constraintStart_toStartOf="@+id/likeNumberTextView"
+					app:layout_constraintTop_toBottomOf="@+id/likeNumberTextView" />
+
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/followerLayout"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:layout_constraintEnd_toStartOf="@+id/followingLayout"
+				app:layout_constraintHorizontal_bias="0.5"
+				app:layout_constraintStart_toEndOf="@+id/likeLayout"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/followerNumberTextView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:textAlignment="center"
+					android:textStyle="bold"
+					android:textColor="@android:color/black"
+					android:textSize="@dimen/number_text_size"
+					android:text="@{data.followersToDisplay}"
+					app:autoSizeMaxTextSize="@dimen/number_text_size"
+					app:autoSizeMinTextSize="@dimen/min_number_text_size"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="212" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/followerTextView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:text="@string/followers_title"
+					android:textAlignment="center"
+					android:textColor="@android:color/darker_gray"
+					android:textSize="@dimen/status_text_size"
+					app:layout_constraintEnd_toEndOf="@+id/followerNumberTextView"
+					app:layout_constraintStart_toStartOf="@+id/followerNumberTextView"
+					app:layout_constraintTop_toBottomOf="@+id/followerNumberTextView" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/followingLayout"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintHorizontal_bias="0.5"
+				app:layout_constraintStart_toEndOf="@+id/followerLayout"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/followingNumberTextView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:textAlignment="center"
+					android:textStyle="bold"
+					android:textColor="@android:color/black"
+					android:textSize="@dimen/number_text_size"
+					android:text="@{data.followingToDisplay}"
+					app:autoSizeMaxTextSize="@dimen/number_text_size"
+					app:autoSizeMinTextSize="@dimen/min_number_text_size"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:text="128" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/followingTextView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:maxLines="1"
+					android:text="@string/following_title"
+					android:textAlignment="center"
+					android:textColor="@android:color/darker_gray"
+					android:textSize="@dimen/status_text_size"
+					app:layout_constraintEnd_toEndOf="@+id/followingNumberTextView"
+					app:layout_constraintStart_toStartOf="@+id/followingNumberTextView"
+					app:layout_constraintTop_toBottomOf="@+id/followingNumberTextView" />
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</FrameLayout>
+</layout>

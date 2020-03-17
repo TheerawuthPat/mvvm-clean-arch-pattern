@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:bind="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<import type="android.view.View" />
+
+		<variable
+			name="viewModel"
+			type="com.example.android_theerawuth_assignment.feature.main.presenter.MainViewModel" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".feature.main.presenter.MainActivity">
+
+		<include
+			android:id="@+id/viewProfileSectionLayout"
+			layout="@layout/view_profile_section"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			bind:data="@{viewModel.userModel.profileDataModel}" />
+
+		<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/swipeRefreshView"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:visibility="@{!viewModel.isError ? View.VISIBLE : View.GONE}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/viewProfileSectionLayout">
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/rvNotification"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:listitem="@layout/item_notification_list" />
+
+		</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+		<include
+			android:id="@+id/viewTryAgainLayout"
+			layout="@layout/view_try_again"
+			android:visibility="@{viewModel.isError ? View.VISIBLE : View.GONE}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:visibility="visible"/>
+
+		<FrameLayout
+			android:id="@+id/progressLoadingLayout"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:background="@color/white"
+			android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<ProgressBar
+				style="@style/Widget.AppCompat.ProgressBar"
+				android:layout_width="@dimen/loading_progress_size"
+				android:layout_height="@dimen/loading_progress_size"
+				android:layout_gravity="center" />
+
+		</FrameLayout>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="name_text_size">20sp</dimen>
+	<dimen name="number_text_size">30sp</dimen>
+	<dimen name="min_number_text_size">20sp</dimen>
+	<dimen name="min_name_text_size">16sp</dimen>
+	<dimen name="status_text_size">16sp</dimen>
+	<dimen name="profile_image_size">60dp</dimen>
+	<dimen name="loading_progress_size">60dp</dimen>
+	<dimen name="noti_title_text_size">16sp</dimen>
+	<dimen name="noti_date_text_size">12sp</dimen>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+	<string name="app_name">Android-Theerawuth-Assignment</string>
+	<string name="likes_title">Likes</string>
+	<string name="followers_title">Followers</string>
+	<string name="following_title">Following</string>
+	<string name="no_wifi_title">You are offline</string>
+	<string name="try_again">TRY AGAIN</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<variable
+			name="data"
+			type="com.example.android_theerawuth_assignment.feature.main.domain.ProfileDataModel" />
+	</data>
+
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:background="@color/white"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<androidx.appcompat.widget.AppCompatImageView
+			android:id="@+id/noWifiImageView"
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			app:layout_constraintBottom_toTopOf="@+id/noWifiTitle"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintVertical_chainStyle="packed"
+			app:srcCompat="@drawable/ic_no_wifi" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/noWifiTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="20dp"
+			android:text="@string/no_wifi_title"
+			android:textSize="@dimen/name_text_size"
+			app:layout_constraintBottom_toTopOf="@+id/tryAgainButton"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/noWifiImageView"
+			app:layout_constraintVertical_chainStyle="packed" />
+
+		<androidx.appcompat.widget.AppCompatButton
+			android:id="@+id/tryAgainButton"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@drawable/background_try_again_button"
+			android:paddingStart="@dimen/name_text_size"
+			android:paddingEnd="@dimen/name_text_size"
+			android:text="@string/try_again"
+			android:textColor="@color/white"
+			android:textSize="@dimen/name_text_size"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/noWifiTitle"
+			app:layout_constraintVertical_chainStyle="packed" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
