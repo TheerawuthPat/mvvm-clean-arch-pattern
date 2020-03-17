@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -45,12 +46,47 @@ android {
         }
     }
 
+    flavorDimensions "default"
+    productFlavors {
+        develop {
+            dimension "default"
+            applicationIdSuffix ".dev"
+        }
+        production {
+            dimension "default"
+        }
+    }
+
+    sourceSets {
+
+        main {
+            java.srcDirs = ['src/main/java']
+        }
+
+        develop {
+            java.srcDirs = ['src/develop/java']
+        }
+
+        production {
+            java.srcDirs = ['src/production/java']
+        }
+    }
+
     dataBinding {
         enabled = true
     }
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
+    }
+
+    testOptions {
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
     }
 
     configurations.all {
@@ -122,6 +158,10 @@ dependencies {
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // Stetho
+    implementation "com.facebook.stetho:stetho:$stethoVersion"
+    implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
 
     //Test
     testImplementation "com.google.truth:truth:1.0.1"

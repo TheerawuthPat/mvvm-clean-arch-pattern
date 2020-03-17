@@ -11,6 +11,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "io.realm:realm-gradle-plugin:6.0.2"
     }
 }
 
@@ -40,4 +41,5 @@ ext {
     okHttpVersion = '3.12.5'
     pagingVersion = '2.1.1'
     gsonVersion = '2.8.6'
+    stethoVersion = '1.5.1'
 }
