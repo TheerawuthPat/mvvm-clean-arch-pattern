@@ -4,6 +4,8 @@ import com.example.android_theerawuth_assignment.application.network.ServiceGene
 import com.example.android_theerawuth_assignment.feature.main.datasource.MainDataSource
 import com.example.android_theerawuth_assignment.feature.main.datasource.MainRepository
 import com.example.android_theerawuth_assignment.feature.main.datasource.MainRepositoryImpl
+import com.example.android_theerawuth_assignment.feature.main.datasource.realm.NotificationCache
+import com.example.android_theerawuth_assignment.feature.main.datasource.realm.NotificationCacheRealm
 import com.example.android_theerawuth_assignment.feature.main.datasource.remote.MainApi
 import com.example.android_theerawuth_assignment.feature.main.datasource.remote.MainRemoteDataSource
 import com.example.android_theerawuth_assignment.feature.main.domain.GetNotificationsUseCase
@@ -18,13 +20,13 @@ import org.koin.dsl.module
 
 val mainModule = module {
 	scope<MainActivity> {
-		factory<MainRepository> { MainRepositoryImpl(get()) }
+		factory<MainRepository> { MainRepositoryImpl(get(), get()) }
 		factory<GetNotificationsUseCase> { GetNotificationsUseCaseImpl(get()) }
 		factory<GetProfileUseCase> { GetProfileUseCaseImpl(get()) }
 		factory<MainDataSource> { MainRemoteDataSource(get()) }
+		factory<NotificationCache> { NotificationCacheRealm() }
 		viewModel<MainViewModel>()
 		factory { get<ServiceGenerator>().create(get(), MainApi::class.java) }
 		factory { NotificationListAdapter() }
-
 	}
 }

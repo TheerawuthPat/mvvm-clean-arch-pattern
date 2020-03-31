@@ -6,7 +6,7 @@ import com.example.android_theerawuth_assignment.application.core.BaseViewModel
 import com.example.android_theerawuth_assignment.application.network.Results
 import com.example.android_theerawuth_assignment.feature.main.domain.GetNotificationsUseCase
 import com.example.android_theerawuth_assignment.feature.main.domain.GetProfileUseCase
-import com.example.android_theerawuth_assignment.feature.main.domain.NotificationsModel
+import com.example.android_theerawuth_assignment.feature.main.domain.NotificationInfo
 import com.example.android_theerawuth_assignment.feature.main.domain.UserModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -22,7 +22,7 @@ class MainViewModel(private val getProfileUseCase: GetProfileUseCase,
 			notifyChange()
 		}
 
-	val notificationDataSuccess = MutableLiveData<List<NotificationsModel>>()
+	val notificationDataSuccess = MutableLiveData<List<NotificationInfo>>()
 
 	fun getProfile() {
 		viewModelScope.launch {
@@ -81,7 +81,7 @@ class MainViewModel(private val getProfileUseCase: GetProfileUseCase,
 	}
 
 	private fun processNotificationListSuccess(
-			data: List<NotificationsModel>) {
+			data: List<NotificationInfo>) {
 		isLoading = false
 		isError = false
 		notificationDataSuccess.postValue(data)

@@ -6,13 +6,13 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_theerawuth_assignment.R
 import com.example.android_theerawuth_assignment.databinding.ItemNotificationListBinding
-import com.example.android_theerawuth_assignment.feature.main.domain.NotificationsModel
+import com.example.android_theerawuth_assignment.feature.main.domain.NotificationInfo
 
 class NotificationViewHolder(
 		private val binding: ItemNotificationListBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-	fun bind(notification: NotificationsModel, isBackgroundChange: Boolean) {
+	fun bind(notification: NotificationInfo, isBackgroundChange: Boolean) {
 		binding.data = notification
 		binding.itemNotificationLayout.let {
 			if (isBackgroundChange) {

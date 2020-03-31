@@ -3,10 +3,10 @@ package com.example.android_theerawuth_assignment.feature.main.presenter.list
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.android_theerawuth_assignment.feature.main.domain.NotificationsModel
+import com.example.android_theerawuth_assignment.feature.main.domain.NotificationInfo
 
 class NotificationListAdapter :
-		ListAdapter<NotificationsModel, NotificationViewHolder>(DIFF_COMPARATOR) {
+		ListAdapter<NotificationInfo, NotificationViewHolder>(DIFF_COMPARATOR) {
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
 		return NotificationViewHolder.newInstance(parent)
@@ -21,13 +21,13 @@ class NotificationListAdapter :
 	}
 
 	companion object {
-		private val DIFF_COMPARATOR = object : DiffUtil.ItemCallback<NotificationsModel>() {
-			override fun areItemsTheSame(oldItem: NotificationsModel,
-			                             newItem: NotificationsModel): Boolean =
+		private val DIFF_COMPARATOR = object : DiffUtil.ItemCallback<NotificationInfo>() {
+			override fun areItemsTheSame(oldItem: NotificationInfo,
+			                             newItem: NotificationInfo): Boolean =
 					oldItem == newItem
 
-			override fun areContentsTheSame(oldItem: NotificationsModel,
-			                                newItem: NotificationsModel): Boolean =
+			override fun areContentsTheSame(oldItem: NotificationInfo,
+			                                newItem: NotificationInfo): Boolean =
 					oldItem == newItem
 		}
 

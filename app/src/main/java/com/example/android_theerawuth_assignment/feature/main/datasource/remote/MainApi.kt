@@ -1,6 +1,7 @@
 package com.example.android_theerawuth_assignment.feature.main.datasource.remote
 
-import com.example.android_theerawuth_assignment.feature.main.domain.NotificationsModel
+import com.example.android_theerawuth_assignment.feature.main.domain.NotificationInfo
+import com.example.android_theerawuth_assignment.feature.main.domain.Notifications
 import com.example.android_theerawuth_assignment.feature.main.domain.ProfileDataModel
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,5 +12,5 @@ interface MainApi {
 	suspend fun getProfile(): Response<ProfileDataModel>
 
 	@GET("users/{userId}/notifications")
-	suspend fun getNotifications(@Path("userId") userId: String): Response<List<NotificationsModel>>
+	suspend fun getNotifications(@Path("userId") userId: String): Response<List<NotificationInfo>>
 }
